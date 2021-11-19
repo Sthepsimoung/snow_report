@@ -1,0 +1,33 @@
+
+
+<p id="notice"><%= notice %></p>
+<div class="container-fluid bg-light rounded jumbotron">
+   <h1 class= "display-4 text-black">Snow Fall Reports</h1>
+   <table id= "selectedColumn" class="table table-sm table-striped sortable">
+      <thead>
+         <tr>
+            <th>Zip Code</th>
+            <th><%= link_to "LARGEST REPORTED SNOWFALL", :sort => "Height" %></th>
+            <th colspan="3"></th>
+         </tr>
+      </thead>
+      <tbody>
+         <% @reports.each do |report| %>
+         <tr>
+            <td><%= report.area_code %></td>
+            <td><%= report.height %> in</td>
+            <td><%= link_to 'New Report', edit_report_path(report), class: "btn btn-primary" %></td>
+            <td><%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
+            <% if false%>
+            <td><%= link_to 'Show', report %></td>
+            <%end%>
+         </tr>
+         <% end %>
+      </tbody>
+   </table>
+   <br>
+   <%= link_to 'New Location', new_report_path, class:"btn btn-secondary rounded" %>
+   <br>
+   <br>
+</div>
+

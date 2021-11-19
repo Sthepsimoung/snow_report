@@ -1,0 +1,29 @@
+
+
+<%= form_with(model: report) do |form| %>
+<% if report.errors.any? %>
+<div id="error_explanation">
+   <p><%= pluralize(report.errors.count, "error") %> prohibited this report from being saved:</p>
+   <ul>
+      <% report.errors.each do |error| %>
+      <li><%= error.full_message %></li>
+      <% end %>
+   </ul>
+</div>
+<% end %>
+<div class="row">
+   <p> How much snow fell at <%= @report.area_code %></p>
+   <br>
+   <div class="field form-group">
+      <%= form.label :height, "Height (inches)" %>
+      <br><br>
+      <%= form.text_field :height, class: "form-control col-md-4", 
+         placeholder: "Enter Value (ex. 12)"%>
+   </div>
+</div>
+<br><br><br>
+<div class="actions">
+   <%= form.submit class: "btn btn-secondary"%>
+</div>
+<% end %>
+

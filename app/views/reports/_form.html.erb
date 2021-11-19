@@ -1,0 +1,32 @@
+<%= form_with(model: report) do |form| %>
+  <% if report.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(report.errors.count, "error") %> prohibited this report from being saved:</h2>
+
+      <ul>
+        <% report.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="row">
+
+  <div class="field form-group col-md-5">
+    <%= form.label :area_code, "ZipCode:" %>
+    <br><br>
+    <%= form.text_field :area_code, class:"form-control",
+    placeholder: "Enter a zip-code (ex. 02895)" %>
+    
+  </div>
+
+<br>
+
+</div>
+
+<br><br><br>
+  <div class="actions">
+    <%= form.submit class: "btn btn-secondary"%>
+  </div>
+<% end %>

@@ -1,0 +1,18 @@
+
+
+<div class="container-fluid bg-light rounded jumbotron text-black">
+   <h1 class="display-4 text-black">Enter a New Location</h1>
+   <br><br>
+   <p>Where should we add to our database?</p>
+   <div class="row">
+      <div class="col-xs-3">
+         <%= render 'form', report: @report %>
+         <br>
+      </div>
+   </div>
+   <div class="col">
+      <%= link_to 'Back', reports_path, class: "btn btn-secondary" %>
+   </div>
+   <br><br>
+</div>
+
